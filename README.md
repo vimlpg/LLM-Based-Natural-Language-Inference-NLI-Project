@@ -3,7 +3,7 @@
 ## Repository Structure
 The project is broken down into sequential Jupyter Notebooks and documentation:
 
-- `multinli_1.0_dev_mismatched.jsonl`: The raw MultiNLI dataset containing the premise-hypothesis pairs used for evaluating the models.
+- `multinli_1.0_dev_matched.jsonl`: The raw MultiNLI dataset containing the premise-hypothesis pairs used for evaluating the models.
    
 - `1. Pure LLM.ipynb`: Establishes the baseline. Evaluates Gemini 2.0 Flash across Zero-Shot, Few-Shot, and Chain-of-Thought (CoT) prompting strategies.
 
@@ -23,6 +23,15 @@ The LLM inference scripts require an API key for Gemini 2.0 Flash.
 
 ```bash
 os.environ["GOOGLE_API_KEY"] = "Your API Key Here"
+```
+
+The Hybrid and Repetition notebooks require `sentence-transformers` 
+for the local Cross-Encoder model.
+
+
+```bash
+pip install sentence-transformers
+from sentence_transformers import CrossEncoder
 ```
 
 ## Running the Code
